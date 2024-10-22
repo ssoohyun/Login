@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.16'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'war' // War plugin
+}
+
+group = ''
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// spring web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// spring security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// test dependencies
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+bootJar {
+	enabled = false  // JAR 파일 생성 비활성화
+}
+
+bootWar {
+	enabled = true  // WAR 파일 생성 활성화
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
