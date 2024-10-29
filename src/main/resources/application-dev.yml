@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/login?serverTimezone=UTC&characterEncoding=UTF-8
+    username: mysqluser
+    password: mysqluserpassword
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        dialect.storage_engine: innodb  # 스토리지 엔진을 InnoDB로 설정
+        format_sql: true
